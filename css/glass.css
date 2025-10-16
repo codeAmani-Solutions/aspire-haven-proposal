@@ -1,0 +1,29 @@
+:root{
+  --bg:#080a10; --text:#ecf0f6; --muted:#9ca5b2;
+  --glass: rgba(255,255,255,.10);
+  --glass-strong: rgba(255,255,255,.20);
+  --stroke: rgba(255,255,255,.15);
+  --shadow: 0 8px 30px rgba(2,12,27,.45);
+  --radius:22px; --blur:18px; --sat:180%;
+}
+
+/* Site-wide background */
+html,body{background:var(--bg); color:var(--text);}
+
+/* The frosted “card” container */
+.glass-card{
+  background:var(--glass-strong);
+  border:1px solid var(--stroke);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter: blur(var(--blur)) saturate(var(--sat));
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--sat));
+  padding:1.5rem;
+}
+
+/* Optional: hero sizing & buttons */
+h1,h2,h3{margin:0 0 .4rem}
+.btn{
+  display:inline-block; padding:.7rem 1.1rem; border-radius:999px;
+  background:linear-gradient(135deg,#7cf6ff,#8f7aff); color:#000; font-weight:700;
+}
