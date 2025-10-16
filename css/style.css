@@ -1,1 +1,152 @@
 
+// Filename: aspire-haven-proposal_app_V1.00.js
+/* Filename: aspire-haven-proposal_style_V1.00.css */
+<!-- Filename: aspire-haven-proposal_V1.00.html -->
+:root {
+  --bg: #080a10;
+  --text: #ecf0f6;
+  --muted: #9ca5b2;
+  --brand-a: #7cf6ff;
+  --brand-b: #8f7aff;
+  --brand-c: #ff85d8;
+  --glass: rgba(255,255,255,0.1);
+  --glass-strong: rgba(255,255,255,0.2);
+  --stroke: rgba(255,255,255,0.15);
+  --shadow: 0 8px 30px rgba(2,12,27,0.45);
+  --radius: 22px;
+  --blur: 18px;
+  --sat: 180%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.container {
+  width: min(100% - 2rem, 1200px);
+  margin-inline: auto;
+}
+
+.glass-card {
+  backdrop-filter: blur(var(--blur)) saturate(var(--sat));
+  background: var(--glass-strong);
+  border-radius: var(--radius);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-block: 1.5rem;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+a {
+  color: var(--brand-a);
+  text-decoration: none;
+}
+
+.thumb {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-block: 2rem;
+  text-align: center;
+}
+
+.thumb img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--brand-a), var(--brand-b));
+  color: #000;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(124, 246, 255, 0.3);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--stroke);
+  text-align: left;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: var(--glass);
+  margin-right: 0.5rem;
+}
+
+footer {
+  text-align: center;
+  opacity: 0.7;
+  margin-block: 2rem;
+}
+
+/* =============================
+   Responsive container queries & breakpoints
+   ============================= */
+
+/* Let each card respond to its own width */
+.glass-card { container-type: inline-size; }
+
+/* Fluid typography */
+h1 { font-size: clamp(1.75rem, 4.5vw, 2.75rem); }
+h2 { font-size: clamp(1.25rem, 3.6vw, 2rem); }
+h3 { font-size: clamp(1.1rem, 3vw, 1.5rem); }
+
+/* Make long tables scroll instead of breaking layout */
+.table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table table { width: 100%; }
+
+/* Container queries: tighten spacing on narrow cards */
+@container (max-width: 520px) {
+  .glass-card { padding: 1.25rem; }
+  .btn { padding: 0.65rem 1rem; font-size: 0.95rem; }
+  .table th, .table td { padding: 0.6rem; }
+  .badge { margin-top: 0.35rem; }
+}
+
+@container (max-width: 380px) {
+  .btn { width: 100%; }
+}
+
+/* Viewport breakpoints */
+@media (max-width: 1024px) {
+  .container { width: min(100% - 1.5rem, 1000px); }
+  .glass-card { padding: 1.4rem; }
+}
+
+@media (max-width: 900px) {
+  .container { width: min(100% - 1.25rem, 860px); }
+  .thumb img { border-radius: 14px; }
+}
+
+@media (max-width: 640px) {
+  .container { width: min(100% - 1rem, 620px); }
+  .glass-card { padding: 1rem; }
+  .btn { display: block; width: 100%; text-align: center; }
+  footer { margin-block: 1.5rem; }
+}
+
