@@ -1,59 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Aspire Haven Group Homes website — enhanced with glassmorphism by codeAmani Digital Solution." />
-  <title>Aspire Haven Group Homes</title>
-  <meta name="color-scheme" content="dark light">
-  <link rel="stylesheet" href="/css/glass.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aspire Haven Group Homes — Liquid Glass Proposal</title>
+  <style>
+    /* --- iOS 26 Liquid Glass Display Style --- */
+    :root {
+      --bg: #0a0e14;
+      --glass: rgba(255, 255, 255, 0.12);
+      --highlight: rgba(255, 255, 255, 0.25);
+      --shadow: 0 8px 30px rgba(2, 12, 27, 0.5);
+      --blur: 18px;
+      --radius: 24px;
+      --accent-a: #7cf6ff;
+      --accent-b: #8f7aff;
+      --accent-c: #ff85d8;
+      --text: #e6ebf0;
+      --muted: #9aa3b4;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .background-blobs {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .blob {
+      position: absolute;
+      width: 70vmax;
+      height: 70vmax;
+      filter: blur(100px);
+      opacity: 0.4;
+      animation: float 20s ease-in-out infinite alternate;
+    }
+    .blob.blue { background: radial-gradient(circle at center, var(--accent-a), transparent 60%); top: -20%; left: -10%; }
+    .blob.pink { background: radial-gradient(circle at center, var(--accent-c), transparent 60%); bottom: -25%; right: -15%; }
+    .blob.purple { background: radial-gradient(circle at center, var(--accent-b), transparent 60%); top: 20%; right: 20%; }
+
+    @keyframes float {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(20px, -40px) scale(1.05); }
+    }
+
+    .container {
+      width: min(100% - 2rem, 1200px);
+      margin: 3rem auto;
+    }
+
+    .glass-card {
+      background: var(--glass);
+      border: 1px solid var(--highlight);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(var(--blur)) saturate(160%);
+      -webkit-backdrop-filter: blur(var(--blur)) saturate(160%);
+      padding: 2rem;
+      margin-block: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(124, 246, 255, 0.25);
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--text);
+    }
+
+    p, li {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+      color: #000;
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 18px rgba(124, 246, 255, 0.4);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--glass);
+      border: 1px solid var(--highlight);
+      border-radius: 999px;
+      padding: 0.4rem 0.8rem;
+      margin-right: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      color: var(--text);
+    }
+
+    th, td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--highlight);
+      text-align: left;
+    }
+
+    th {
+      font-weight: 600;
+      background: rgba(255,255,255,0.08);
+    }
+
+    footer {
+      text-align: center;
+      opacity: 0.8;
+      margin: 3rem 0 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .container { width: min(100% - 1.25rem, 720px); }
+      .glass-card { padding: 1.25rem; }
+    }
+  </style>
 </head>
 <body>
-  <main class="container glass-card">
-    <header class="glass-card">
+  <div class="background-blobs">
+    <div class="blob blue"></div>
+    <div class="blob pink"></div>
+    <div class="blob purple"></div>
+  </div>
+
+  <main class="container">
+    <section class="glass-card">
       <h1>Aspire Haven Group Homes — Digital Growth Proposal</h1>
-      <p>This proposal by <strong>codeAmani Digital Solution</strong> showcases Aspire Haven Group Homes’ digital ecosystem using glassmorphism for a sleek, modern presentation that adapts to all devices.</p>
-    </header>
+      <p>This proposal by <strong>codeAmani Digital Solution</strong> introduces a futuristic, <em>Liquid Glass</em> design aesthetic inspired by iOS 26, delivering a responsive and immersive user experience across all devices.</p>
+    </section>
 
     <section class="glass-card">
       <h2>1. Aspire Haven Website Showcase</h2>
-      <p>Preview of Aspire Haven’s live website with glass overlay effect.</p>
+      <p>Below is a live thumbnail preview of <strong>Aspire Haven’s</strong> website, demonstrating interactive depth and reflection effects.</p>
       <div class="thumb glass-card">
-        <img src="assets/aspirehaven-thumb.jpg" alt="Aspire Haven Group Homes website preview" onerror="this.src='assets/fallback-thumb.png';">
+        <img src="assets/aspirehaven-thumb.jpg" alt="Aspire Haven Website Preview" loading="lazy" />
         <a class="btn" href="https://www.aspirehavengroup.com" target="_blank">View Live Site</a>
       </div>
     </section>
 
     <section class="glass-card">
       <h2>2. Search Visibility & Insights</h2>
-      <p>Insights on Aspire Haven’s digital visibility and ranking metrics.</p>
-      <table class="table">
-        <thead><tr><th>Keyword</th><th>Intent</th><th>Current Rank</th></tr></thead>
+      <p>Overview of Aspire Haven’s search rankings and keyword performance.</p>
+      <table>
+        <thead><tr><th>Keyword</th><th>Intent</th><th>Rank</th></tr></thead>
         <tbody>
           <tr><td>aspire haven group homes</td><td>Brand</td><td>#1</td></tr>
           <tr><td>apd group home services</td><td>Buyer</td><td>#3</td></tr>
           <tr><td>medwaiver support florida</td><td>Research</td><td>#6</td></tr>
         </tbody>
       </table>
-      <img src="assets/rank-screenshot.png" alt="Google search ranking screenshot" style="width:100%;border-radius:12px;margin-top:1rem;" onerror="this.src='assets/fallback-rank.png';">
     </section>
 
     <section class="glass-card">
       <h2>3. Professional Domain & Communication Setup</h2>
-      <p>Configuration and branding assets established for Aspire Haven Group Homes.</p>
       <ul>
         <li><span class="badge">Domain Connected</span> aspirehavengroup.com</li>
         <li><span class="badge">Emails Active</span> info@aspirehavengroup.com • contact@aspirehavengroup.com</li>
-        <li><span class="badge">Security Verified</span> SPF • DKIM • DMARC</li>
+        <li><span class="badge">Verified</span> SPF • DKIM • DMARC Enabled</li>
       </ul>
     </section>
 
     <section class="glass-card">
-      <h2>4. Business Collateral Included</h2>
+      <h2>4. Business Collateral</h2>
       <ul>
-        <li><strong>Brochures</strong> — Digital and print-ready materials.</li>
-        <li><strong>Letterhead</strong> — Branded templates for formal use.</li>
-        <li><strong>Business Cards</strong> — Designed and optimized for print.</li>
+        <li><strong>Brochures</strong> — Elegant APD-focused marketing design.</li>
+        <li><strong>Letterhead</strong> — Branded templates for correspondence.</li>
+        <li><strong>Business Cards</strong> — QR code integration with contact links.</li>
       </ul>
     </section>
 
@@ -62,19 +199,34 @@
       <ul>
         <li>Monthly updated <strong>Support Coordinators List</strong>.</li>
         <li>Centralized <strong>APD Forms</strong> repository.</li>
-        <li><a href="https://example.com/apd-dashboard" target="_blank">Access Dashboard →</a></li>
+        <li><a class="btn" href="https://example.com/apd-dashboard" target="_blank">Access Dashboard →</a></li>
       </ul>
     </section>
 
-    <footer class="glass-card" style="text-align:center;opacity:.8;margin-block:2rem;">
-      <p>© <span id="year"></span> codeAmani Digital Solution • Built with Glassmorphism</p>
+    <section class="glass-card">
+      <h2>6. Next Steps</h2>
+      <p>Once approved, Aspire Haven’s digital suite will be deployed with a 90-day support window and live analytics tracking.</p>
+      <p><a href="#" class="badge">Confirm Engagement</a></p>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> codeAmani Digital Solution — Crafted with iOS 26 Liquid Glass Design</p>
     </footer>
   </main>
-  <script src="/js/app.js" defer></script>
+
   <script>
-    document.addEventListener('DOMContentLoaded', ()=>{
-      document.getElementById('year').textContent = new Date().getFullYear();
+    // Parallax Blob Motion Script
+    const blobs = document.querySelectorAll('.blob');
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX / window.innerWidth - 0.5;
+      const y = e.clientY / window.innerHeight - 0.5;
+      blobs.forEach((b, i) => {
+        const offsetX = (i + 1) * 20 * x;
+        const offsetY = (i + 1) * 20 * y;
+        b.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      });
     });
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
