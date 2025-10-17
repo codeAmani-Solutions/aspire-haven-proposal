@@ -135,9 +135,28 @@
       margin: 3rem 0 1rem;
     }
 
+    .thumb img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 1024px) {
+      .container { width: min(100% - 1.5rem, 900px); }
+      .glass-card { padding: 1.5rem; }
+    }
+
     @media (max-width: 768px) {
-      .container { width: min(100% - 1.25rem, 720px); }
+      .container { width: min(100% - 1.25rem, 700px); }
       .glass-card { padding: 1.25rem; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.75rem; }
+      h2 { font-size: 1.25rem; }
+      p { font-size: 0.95rem; }
     }
   </style>
 </head>
