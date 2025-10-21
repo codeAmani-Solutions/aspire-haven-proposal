@@ -1,251 +1,219 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aspire Haven Group Homes — Liquid Glass Proposal</title>
-  <style>
-    /* --- iOS 26 Liquid Glass Display Style --- */
-    :root {
-      --bg: #0a0e14;
-      --glass: rgba(255, 255, 255, 0.12);
-      --highlight: rgba(255, 255, 255, 0.25);
-      --shadow: 0 8px 30px rgba(2, 12, 27, 0.5);
-      --blur: 18px;
-      --radius: 24px;
-      --accent-a: #7cf6ff;
-      --accent-b: #8f7aff;
-      --accent-c: #ff85d8;
-      --text: #e6ebf0;
-      --muted: #9aa3b4;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aspire Haven Group Home — codeAmani Solutions Proposal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        background: radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.18), transparent 45%),
+          radial-gradient(circle at 75% 10%, rgba(56, 189, 248, 0.18), transparent 55%),
+          radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.14), transparent 60%),
+          #020617;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen text-slate-100 antialiased">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -left-32 -top-24 h-96 w-96 rounded-full bg-indigo-500/30 blur-3xl"></div>
+      <div class="absolute left-1/2 top-32 h-96 w-96 -translate-x-1/2 rounded-full bg-sky-400/25 blur-3xl"></div>
+      <div class="absolute -right-32 bottom-0 h-[26rem] w-[26rem] rounded-full bg-pink-500/20 blur-3xl"></div>
+    </div>
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    .background-blobs {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .blob {
-      position: absolute;
-      width: 70vmax;
-      height: 70vmax;
-      filter: blur(100px);
-      opacity: 0.4;
-      animation: float 20s ease-in-out infinite alternate;
-    }
-    .blob.blue { background: radial-gradient(circle at center, var(--accent-a), transparent 60%); top: -20%; left: -10%; }
-    .blob.pink { background: radial-gradient(circle at center, var(--accent-c), transparent 60%); bottom: -25%; right: -15%; }
-    .blob.purple { background: radial-gradient(circle at center, var(--accent-b), transparent 60%); top: 20%; right: 20%; }
-
-    @keyframes float {
-      from { transform: translate(0, 0) scale(1); }
-      to { transform: translate(20px, -40px) scale(1.05); }
-    }
-
-    .container {
-      width: min(100% - 2rem, 1200px);
-      margin: 3rem auto;
-    }
-
-    .glass-card {
-      background: var(--glass);
-      border: 1px solid var(--highlight);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(var(--blur)) saturate(160%);
-      -webkit-backdrop-filter: blur(var(--blur)) saturate(160%);
-      padding: 2rem;
-      margin-block: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .glass-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(124, 246, 255, 0.25);
-    }
-
-    h1, h2, h3 {
-      font-weight: 600;
-      line-height: 1.3;
-      color: var(--text);
-    }
-
-    p, li {
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
-      color: #000;
-      padding: 0.8rem 1.6rem;
-      border-radius: 999px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 18px rgba(124, 246, 255, 0.4);
-    }
-
-    .badge {
-      display: inline-block;
-      background: var(--glass);
-      border: 1px solid var(--highlight);
-      border-radius: 999px;
-      padding: 0.4rem 0.8rem;
-      margin-right: 0.5rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-      color: var(--text);
-    }
-
-    th, td {
-      padding: 0.75rem;
-      border-bottom: 1px solid var(--highlight);
-      text-align: left;
-    }
-
-    th {
-      font-weight: 600;
-      background: rgba(255,255,255,0.08);
-    }
-
-    footer {
-      text-align: center;
-      opacity: 0.8;
-      margin: 3rem 0 1rem;
-    }
-
-    .thumb img {
-      width: 100%;
-      height: auto;
-      border-radius: var(--radius);
-      object-fit: cover;
-      display: block;
-    }
-
-    @media (max-width: 1024px) {
-      .container { width: min(100% - 1.5rem, 900px); }
-      .glass-card { padding: 1.5rem; }
-    }
-
-    @media (max-width: 768px) {
-      .container { width: min(100% - 1.25rem, 700px); }
-      .glass-card { padding: 1.25rem; }
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 1.75rem; }
-      h2 { font-size: 1.25rem; }
-      p { font-size: 0.95rem; }
-    }
-  </style>
-</head>
-<body>
-  <div class="background-blobs">
-    <div class="blob blue"></div>
-    <div class="blob pink"></div>
-    <div class="blob purple"></div>
-  </div>
-
-  <main class="container">
-    <section class="glass-card">
-      <h1>Aspire Haven Group Homes — Digital Growth Proposal</h1>
-      <p>This proposal by <strong>codeAmani Digital Solution</strong> introduces a futuristic, <em>Liquid Glass</em> design aesthetic inspired by iOS 26, delivering a responsive and immersive user experience across all devices.</p>
-    </section>
-
-    <section class="glass-card">
-      <h2>1. Aspire Haven Website Showcase</h2>
-      <p>Below is a live thumbnail preview of <strong>Aspire Haven’s</strong> website, demonstrating interactive depth and reflection effects.</p>
-      <div class="thumb glass-card">
-        <img src="assets/aspirehaven-thumb.jpg" alt="Aspire Haven Website Preview" loading="lazy" />
-        <a class="btn" href="https://www.aspirehavengroup.com" target="_blank">View Live Site</a>
+    <header class="relative border-b border-white/10 bg-slate-950/70 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6">
+        <div>
+          <p class="text-xs font-semibold tracking-[0.35em] text-sky-300 uppercase">codeAmani Solutions</p>
+          <h1 class="mt-2 text-3xl font-semibold text-white md:text-4xl">
+            Aspire Haven Group Home — Digital Growth Proposal
+          </h1>
+        </div>
+        <a
+          href="mailto:info@codeamani.com"
+          class="inline-flex items-center gap-2 rounded-full border border-sky-300/40 bg-gradient-to-r from-sky-300 to-indigo-400 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/30 transition hover:-translate-y-0.5 hover:shadow-xl"
+        >
+          Book Your Free Consultation
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
       </div>
-    </section>
+    </header>
 
-    <section class="glass-card">
-      <h2>2. Search Visibility & Insights</h2>
-      <p>Overview of Aspire Haven’s search rankings and keyword performance.</p>
-      <table>
-        <thead><tr><th>Keyword</th><th>Intent</th><th>Rank</th></tr></thead>
-        <tbody>
-          <tr><td>aspire haven group homes</td><td>Brand</td><td>#1</td></tr>
-          <tr><td>apd group home services</td><td>Buyer</td><td>#3</td></tr>
-          <tr><td>medwaiver support florida</td><td>Research</td><td>#6</td></tr>
-        </tbody>
-      </table>
-    </section>
+    <main class="relative mx-auto grid max-w-6xl gap-6 px-6 py-10 lg:py-16">
+      <section class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Overview</p>
+            <h2 class="mt-4 text-2xl font-semibold text-white md:text-3xl">Launch a self-sustaining growth engine</h2>
+            <p class="mt-4 text-base leading-relaxed text-slate-300">
+              This one-page proposal captures how <strong class="font-semibold text-white">codeAmani Solutions</strong> is ready to
+              transform Aspire Haven’s online presence. We combine a bespoke website, professional domain management,
+              branded email, and AI-guided SEO into a single irresistible offer engineered to preserve your #1 Google
+              ranking.
+            </p>
+            <div class="mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/50 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-200">
+              Proven #1 Google ranking already secured
+            </div>
+          </div>
+          <figure class="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/60 shadow-lg shadow-black/30">
+            <img src="assets/rank-screenshot.png" alt="Screenshot proving Aspire Haven ranks first on Google" class="h-full w-full object-cover" loading="lazy" />
+          </figure>
+        </div>
+      </section>
 
-    <section class="glass-card">
-      <h2>3. Professional Domain & Communication Setup</h2>
-      <ul>
-        <li><span class="badge">Domain Connected</span> aspirehavengroup.com</li>
-        <li><span class="badge">Emails Active</span> info@aspirehavengroup.com • contact@aspirehavengroup.com</li>
-        <li><span class="badge">Verified</span> SPF • DKIM • DMARC Enabled</li>
-      </ul>
-    </section>
+      <section id="package" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Foundational Package</p>
+            <h2 class="mt-3 text-2xl font-semibold text-white md:text-3xl">Built to impress from day one</h2>
+          </div>
+          <span class="text-sm font-medium text-slate-300">Desktop + mobile previews below</span>
+        </div>
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          <article class="flex flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/20">
+            <div>
+              <h3 class="text-xl font-semibold text-white">Custom Website Experience</h3>
+              <p class="mt-2 text-slate-300">
+                Story-driven layout tailored to APD services with clear trust markers, service pathways, and intuitive intake
+                prompts to convert interested families immediately.
+              </p>
+            </div>
+            <figure class="overflow-hidden rounded-xl border border-white/10">
+              <img src="assets/aspirehaven-thumb.jpg" alt="Desktop mockup of the Aspire Haven website" class="w-full" loading="lazy" />
+            </figure>
+          </article>
+          <article class="flex flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/20">
+            <div>
+              <h3 class="text-xl font-semibold text-white">Responsive Design Everywhere</h3>
+              <p class="mt-2 text-slate-300">
+                Optimized for phones, tablets, and desktops so coordinators and caregivers can reach Aspire Haven wherever they
+                are—without sacrificing performance or polish.
+              </p>
+            </div>
+            <figure class="overflow-hidden rounded-xl border border-white/10">
+              <img src="assets/aspirehaven-thumb.png" alt="Mobile mockup of the Aspire Haven website" class="w-full" loading="lazy" />
+            </figure>
+          </article>
+        </div>
+      </section>
 
-    <section class="glass-card">
-      <h2>4. Business Collateral</h2>
-      <ul>
-        <li><strong>Brochures</strong> — Elegant APD-focused marketing design.</li>
-        <li><strong>Letterhead</strong> — Branded templates for correspondence.</li>
-        <li><strong>Business Cards</strong> — QR code integration with contact links.</li>
-      </ul>
-    </section>
+      <section id="deliverables" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Beyond the build</p>
+        <h2 class="mt-3 text-2xl font-semibold text-white md:text-3xl">What’s included after launch</h2>
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <article class="rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
+            <h3 class="text-lg font-semibold text-white">Domain ownership & security</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              We register and renew <span class="font-semibold text-white">aspirehavengroup.com</span> in Aspire Haven’s name, manage DNS, and guard against downtime or hijacking.
+            </p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
+            <h3 class="text-lg font-semibold text-white">Professional email suite</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              Launch inboxes like <span class="font-semibold text-white">info@aspirehavengroup.com</span> with SPF, DKIM, and DMARC so every outreach lands in the inbox, not spam.
+            </p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
+            <h3 class="text-lg font-semibold text-white">AI-driven monthly SEO</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              Autonomous SEO agents defend your #1 ranking, monitor competitor moves, and surface new keyword wins each month.
+            </p>
+          </article>
+        </div>
+      </section>
 
-    <section class="glass-card">
-      <h2>5. APD Resource Dashboard</h2>
-      <ul>
-        <li>Monthly updated <strong>Support Coordinators List</strong>.</li>
-        <li>Centralized <strong>APD Forms</strong> repository.</li>
-        <li><a class="btn" href="https://example.com/apd-dashboard" target="_blank">Access Dashboard →</a></li>
-      </ul>
-    </section>
+      <section id="investment" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Investment summary</p>
+            <h2 class="mt-3 text-2xl font-semibold text-white md:text-3xl">Choose your growth rhythm</h2>
+          </div>
+          <p class="text-sm text-slate-300">Flexible options to match your momentum</p>
+        </div>
+        <div class="mt-8 grid gap-6 lg:grid-cols-3">
+          <article class="flex flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
+            <header>
+              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">Launch essentials</p>
+              <h3 class="mt-2 text-xl font-semibold text-white">Foundation Bundle</h3>
+            </header>
+            <p class="text-sm leading-relaxed text-slate-300">
+              Everything you need to launch: custom website, domain ownership, branded email, analytics, and training handoff.
+            </p>
+            <p class="text-2xl font-semibold text-white">
+              <span class="mr-2 text-sm font-medium line-through text-slate-400">$3,500</span>
+              $2,000 one-time
+            </p>
+          </article>
+          <article class="flex flex-col gap-4 rounded-2xl border border-emerald-400/50 bg-emerald-400/10 p-6 shadow-lg shadow-emerald-500/20">
+            <header class="flex items-center justify-between">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-200">Recommended</p>
+                <h3 class="mt-2 text-xl font-semibold text-white">SEO Growth</h3>
+              </div>
+              <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-100">Best value</span>
+            </header>
+            <p class="text-sm leading-relaxed text-emerald-100/90">
+              Monthly SEO agents, reporting dashboard, lead tracking, content refreshes, and quarterly growth sprints.
+            </p>
+            <p class="text-2xl font-semibold text-white">$650 / month</p>
+          </article>
+          <article class="flex flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
+            <header>
+              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">Market dominance</p>
+              <h3 class="mt-2 text-xl font-semibold text-white">Market Dominator</h3>
+            </header>
+            <p class="text-sm leading-relaxed text-slate-300">
+              Multi-location SEO, conversion rate optimization, paid retargeting setup, and ongoing creative refreshes.
+            </p>
+            <p class="text-2xl font-semibold text-white">$1,200 / month</p>
+          </article>
+        </div>
+      </section>
 
-    <section class="glass-card">
-      <h2>6. Next Steps</h2>
-      <p>Once approved, Aspire Haven’s digital suite will be deployed with a 90-day support window and live analytics tracking.</p>
-      <p><a href="#" class="badge">Confirm Engagement</a></p>
-    </section>
+      <section id="testimonial" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">What our partners say</p>
+        <blockquote class="mt-6 space-y-4 text-lg font-medium leading-relaxed text-slate-200 md:text-xl">
+          <p>
+            “codeAmani Solutions transformed our outreach. Their launch plan delivered qualified leads in the first week and the
+            SEO guardianship keeps us ahead of every competitor.”
+          </p>
+          <footer class="text-sm font-semibold tracking-wide text-slate-300">— [Client Name], [Organization]</footer>
+        </blockquote>
+      </section>
 
-    <footer>
-      <p>© <span id="year"></span> codeAmani Digital Solution — Crafted with iOS 26 Liquid Glass Design</p>
-    </footer>
-  </main>
-
-  <script>
-    // Parallax Blob Motion Script
-    const blobs = document.querySelectorAll('.blob');
-    document.addEventListener('mousemove', (e) => {
-      const x = e.clientX / window.innerWidth - 0.5;
-      const y = e.clientY / window.innerHeight - 0.5;
-      blobs.forEach((b, i) => {
-        const offsetX = (i + 1) * 20 * x;
-        const offsetY = (i + 1) * 20 * y;
-        b.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-      });
-    });
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+      <section id="next-steps" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Next steps</p>
+            <h2 class="mt-3 text-2xl font-semibold text-white md:text-3xl">Here’s how we launch together</h2>
+          </div>
+          <a
+            href="mailto:info@codeamani.com"
+            class="inline-flex items-center gap-2 rounded-full border border-sky-300/40 bg-gradient-to-r from-sky-300 to-indigo-400 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/30 transition hover:-translate-y-0.5 hover:shadow-xl"
+          >
+            Claim Your #1 Ranking
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+        <ol class="mt-8 grid gap-6 md:grid-cols-3">
+          <li class="relative rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/20">
+            <span class="absolute -top-4 left-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-500/20 text-sm font-semibold text-sky-200">01</span>
+            <p class="mt-6 text-sm leading-relaxed text-slate-300">Approve the proposal to activate Aspire Haven’s digital growth roadmap.</p>
+          </li>
+          <li class="relative rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/20">
+            <span class="absolute -top-4 left-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-500/20 text-sm font-semibold text-sky-200">02</span>
+            <p class="mt-6 text-sm leading-relaxed text-slate-300">We deploy the custom experience, connect your domain and email, and wire up analytics.</p>
+          </li>
+          <li class="relative rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/20">
+            <span class="absolute -top-4 left-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-500/20 text-sm font-semibold text-sky-200">03</span>
+            <p class="mt-6 text-sm leading-relaxed text-slate-300">SEO agents monitor rankings daily and deliver your first performance review in 30 days.</p>
+          </li>
+        </ol>
+      </section>
