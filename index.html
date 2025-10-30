@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aspire Haven Group Home — codeAmani Solutions Proposal</title>
-    <!-- FIX: Corrected the Tailwind CSS script URL -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <!-- FIX: Corrected the Tailwind CSS script URL --><script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <style>
       :root {
         color-scheme: dark;
@@ -131,7 +130,11 @@
       <section id="deliverables" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
         <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Your APD-Optimized Business Toolkit</p>
         <h2 class="mt-3 text-2xl font-semibold text-white md:text-3xl">Everything You Own with the Foundation Bundle</h2>
-        <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <!-- 
+          REMOVED: Secure Client Portal
+          REMOVED: Referral Generation Tool
+          UPDATED: Grid classes to handle 4 items cleanly 
+        --><div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           <article class="flex flex-col rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
             <h3 class="text-lg font-semibold text-white">Domain Rights & Security</h3>
             <p class="mt-3 text-sm leading-relaxed text-slate-300">
@@ -156,22 +159,6 @@
                   Print-ready designs for professional business cards and company letterhead that establish your competency *before* the first meeting.
             </p>
           </article>
-          <article class="flex flex-col rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
-            <h3 class="text-lg font-semibold text-white">Secure Client Portal</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-300">
-                  A HIPAA-compliant-ready portal to securely manage client files, APD forms, and sensitive communications with Support Coordinators.
-            </p>
-          </article>
-          <article class="flex flex-col rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
-            <h3 class="text-lg font-semibold text-white">Referral Generation Tool</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-300">
-                  Your instant referral network. We provide the curated list of Jacksonville APD Support Coordinators so you can start outreach on Day 1.
-            </p>
-            <button id="draft-email-btn" class="mt-auto inline-flex items-center justify-center gap-2 rounded-full bg-sky-500/10 px-4 py-2 text-sm font-semibold text-sky-300 transition hover:bg-sky-500/20 disabled:opacity-50">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 01-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 013.09-3.09L12 5.25l.813 2.846a4.5 4.5 0 013.09 3.09L18.75 12l-2.846.813a4.5 4.5 0 01-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.624L16.5 21.75l-.398-1.126a3.375 3.375 0 00-2.456-2.456L12.75 18l1.126-.398a3.375 3.375 0 002.456-2.456L16.5 14.25l.398 1.126a3.375 3.375 0 002.456 2.456L20.25 18l-1.126.398a3.375 3.375 0 00-2.456 2.456z" /></svg>
-              <span>✨ Draft Sample Referral Email</span>
-            </button>
-          </article>
         </div>
       </section>
 
@@ -188,8 +175,8 @@
               <p class="text-3xl font-bold text-emerald-400">$500.00</p>
             </div>
           </div>
-          <p class="mt-3 text-sm leading-relaxed text-slate-300">
-            A one-time payment to acquire all the foundational assets you need to operate as a top-tier APD home: your custom website, domain, logo, branding kit, secure portal, and the APD referral tool.
+          <!-- UPDATED: Removed portal and referral tool from description --><p class="mt-3 text-sm leading-relaxed text-slate-300">
+            A one-time payment to acquire all the foundational assets you need to operate as a top-tier APD home: your custom website, domain, logo, and branding kit.
           </p>
           <div class="mt-4 rounded-md border border-amber-400/50 bg-amber-400/10 px-4 py-2 text-center text-sm font-semibold text-amber-200">
             "End of Year" Promo: Save 75% when you sign up today!
@@ -246,11 +233,7 @@
             
             <p class="mt-2 text-sm font-bold text-emerald-300">Total Monthly Value: $1,000</p>
             
-            <button id="draft-blog-btn" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/20 disabled:opacity-50">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 01-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 013.09-3.09L12 5.25l.813 2.846a4.5 4.5 0 013.09 3.09L18.75 12l-2.846.813a4.5 4.5 0 01-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.624L16.5 21.75l-.398-1.126a3.375 3.375 0 00-2.456-2.456L12.75 18l1.126-.398a3.375 3.375 0 002.456-2.456L16.5 14.25l.398 1.126a3.375 3.375 0 002.456 2.456L20.25 18l-1.126.398a3.375 3.375 0 00-2.456 2.456z" /></svg>
-              <span>✨ Generate Sample SEO Blog Post</span>
-            </button>
-            <div class="mt-6 rounded-md border border-amber-400/50 bg-amber-400/10 px-3 py-2 text-center text-sm font-semibold text-amber-200">
+            <!-- REMOVED: AI Blog Post Button --><div class="mt-6 rounded-md border border-amber-400/50 bg-amber-400/10 px-3 py-2 text-center text-sm font-semibold text-amber-200">
               LIMITED TIME: Get your first month FREE!
             </div>
             <p class="mt-4 text-2xl font-semibold text-white">$650 / month</p>
@@ -288,6 +271,36 @@
               LIMITED TIME: $150 for your first month!
             </div>
              <p class="mt-4 text-2xl font-semibold text-white">$200 / month</p>
+           </article>
+        </div>
+      </section>
+
+      <!-- NEW SECTION: Standalone Solutions --><section id="standalone-solutions" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Standalone APD Management Solutions</p>
+        <h2 class="mt-3 text-2xl font-semibold text-white md:text-3xl">Optional SaaS & Management Tools</h2>
+         <p class="mt-2 text-sm text-slate-300">Highly recommended add-ons to automate referrals and manage client data with full compliance.</p>
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <!-- Secure Client Portal Card --><article class="flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
+             <header>
+              <h3 class="text-xl font-semibold text-white">Secure Client Portal</h3>
+            </header>
+             <p class="text-sm leading-relaxed text-slate-300">
+                  A HIPAA-compliant-ready portal to securely manage client files, APD forms, and sensitive communications with Support Coordinators.
+            </p>
+             <p class="mt-auto pt-4 text-xl font-semibold text-sky-300">Contact for Pricing</p>
+           </article>
+           <!-- Referral Generation Tool Card --><article class="flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
+             <header>
+              <h3 class="text-xl font-semibold text-white">Referral Generation Tool</h3>
+            </header>
+             <p class="text-sm leading-relaxed text-slate-300">
+                  Your instant referral network. We provide the curated list of Jacksonville APD Support Coordinators so you can start outreach on Day 1.
+            </p>
+             <button id="draft-email-btn" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-sky-500/10 px-4 py-2 text-sm font-semibold text-sky-300 transition hover:bg-sky-500/20 disabled:opacity-50">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 01-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 013.09-3.09L12 5.25l.813 2.846a4.5 4.5 0 013.09 3.09L18.75 12l-2.846.813a4.5 4.5 0 01-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.624L16.5 21.75l-.398-1.126a3.375 3.375 0 00-2.456-2.456L12.75 18l1.126-.398a3.375 3.375 0 002.456-2.456L16.5 14.25l.398 1.126a3.375 3.375 0 002.456 2.456L20.25 18l-1.126.398a3.375 3.375 0 00-2.456 2.456z" /></svg>
+              <span>✨ Draft Sample Referral Email</span>
+            </button>
+             <p class="mt-auto pt-4 text-xl font-semibold text-sky-300">Contact for Pricing</p>
            </article>
         </div>
       </section>
@@ -467,15 +480,15 @@ D          </li>
         const modalContent = document.getElementById('modal-content');
         const modalLoader = document.getElementById('modal-loader');
         const draftEmailBtn = document.getElementById('draft-email-btn');
-        const draftBlogBtn = document.getElementById('draft-blog-btn');
+        // Removed draftBlogBtn as it's no longer present in the HTML.
         
-        // Check if all critical AI elements exist
-        if (modal && closeModalBtn && modalTitle && modalSubtitle && modalContent && modalLoader && draftEmailBtn && draftBlogBtn) {
+        // Check if all critical AI elements exist (excluding draftBlogBtn now)
+        if (modal && closeModalBtn && modalTitle && modalSubtitle && modalContent && modalLoader && draftEmailBtn) {
           
-          const demoButtons = [draftEmailBtn, draftBlogBtn];
+          // Only draftEmailBtn remains in this array for generic demo button handling.
+          const demoButtons = [draftEmailBtn]; 
           const originalButtonText = {
             email: '✨ Draft Sample Referral Email',
-            blog: '✨ Generate Sample SEO Blog Post'
           };
 
           // Modal Control
@@ -502,12 +515,7 @@ D          </li>
               title: "✨ AI-Drafted Referral Email",
               subtitle: "This demonstrates how we'll help you build your referral network."
             },
-            blog: {
-              system: "You's an expert SEO content writer specializing in the healthcare and assisted living industry. Your tone is professional, compassionate, and informative. You write blog posts that build trust with families and rank well on Google.",
-              user: "Write a 300-word sample blog post for an APD (Agency for Persons with Disabilities) group home in Jacksonville, Florida, called 'Aspire Haven Group Home.' The topic should be '5 Signs Your Loved One is Ready for a Group Home.' The post must be optimized for the keyword 'APD group home Jacksonville' and end with a call to action to contact Aspire Haven.",
-              title: "✨ AI-Generated SEO Blog Post",
-              subtitle: "A sample of the high-quality, ranked content we'll create for you monthly."
-            }
+            // Removed blog prompt
           };
 
           // Gemini API Call
@@ -522,8 +530,12 @@ D          </li>
             modalLoader.classList.remove('hidden');
             demoButtons.forEach(btn => btn.disabled = true);
             
-            const btnSpan = (buttonType === 'email' ? draftEmailBtn : draftBlogBtn).querySelector('span');
-            if (btnSpan) btnSpan.textContent = 'Working...';
+            // Simplified button text update logic since only one AI button remains
+            if (buttonType === 'email') {
+              const btnSpan = draftEmailBtn.querySelector('span');
+              if (btnSpan) btnSpan.textContent = 'Working...';
+            }
+            
 
             const payload = {
               contents: [{ parts: [{ text: userPrompt }] }],
@@ -581,23 +593,15 @@ D          </li>
             modalLoader.classList.add('hidden');
             demoButtons.forEach(btn => btn.disabled = false);
             
+            // Restore original button text for the remaining email button.
             const emailBtnSpan = draftEmailBtn.querySelector('span');
             if (emailBtnSpan) emailBtnSpan.textContent = originalButtonText.email;
-            
-            const blogBtnSpan = draftBlogBtn.querySelector('span');
-            if (blogBtnSpan) blogBtnSpan.textContent = originalButtonText.blog;
           }
 
-          // Event Listeners
+          // Event Listener for the remaining email button
           draftEmailBtn.addEventListener('click', () => {
             const p = PROMPTS.email;
             callGemini(p.system, p.user, p.title, p.subtitle, 'email');
-          });
-
-          draftBlogBtn.addEventListener('click', () => {
-            const p = PROMPTS.blog;
-            callGemini(p.system, p.user, p.title, p.subtitle, 'blog');
-Choose
           });
           
         } else {
