@@ -19,6 +19,37 @@
     /* Larger tap targets */
     a, button { min-height: 44px; }
   </style>
+  <script>
+    // Simple policy panel controller
+    (function(){
+      const panels = {};
+      function hideAll(){
+        Object.values(panels).forEach(p=>p.classList.add('hidden'));
+      }
+      window.showPolicy = function(id){
+        const el = document.getElementById('policy-' + id);
+        if(!el) return;
+        hideAll();
+        el.classList.remove('hidden');
+        el.setAttribute('aria-hidden','false');
+        el.focus();
+      };
+      window.addEventListener('DOMContentLoaded',()=>{
+        ['privacy','terms','accessibility'].forEach(id=>{
+          const el = document.getElementById('policy-' + id);
+          if(el){
+            panels[id]=el;
+            let hover=false;
+            el.addEventListener('mouseenter',()=>hover=true);
+            el.addEventListener('mouseleave',()=>{hover=false; el.classList.add('hidden');});
+            window.addEventListener('scroll',()=>{ if(!hover) el.classList.add('hidden'); });
+            // Close on Escape
+            el.addEventListener('keydown',e=>{ if(e.key==='Escape') el.classList.add('hidden'); });
+          }
+        });
+      });
+    })();
+  </script>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -49,6 +80,7 @@
           <li><a href="#deliverables" class="hover:text-white">What You Get</a></li>
           <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
           <li><a href="#next" class="hover:text-white">Next Steps</a></li>
+          <li><a href="#faq" class="hover:text-white">FAQ</a></li>
         </ul>
       </nav>
       <a href="#next" class="rounded-full bg-gradient-to-r from-sky-300 to-indigo-400 px-5 py-2 text-sm font-semibold text-slate-900 focus-ring">Approve & Transfer</a>
@@ -123,7 +155,7 @@
             <li>Microsoft/Google email for your domain</li>
             <li>Updates and security monitoring</li>
           </ul>
-          <p class="mt-3 text-xl text-emerald-200 line-through">$135 / mo</p>
+          <p class="mt-3 text-xl text-emerald-200 line-through">35 / mo</p>
           <p class="text-3xl font-bold text-white">$85 / mo</p>
           <p class="text-xs text-emerald-100/80">or $900/year (save $120)</p>
         </article>
@@ -143,7 +175,6 @@
         </article>
       </div>
     </section>
-
     <!-- NEXT STEPS -->
     <section id="next" class="mt-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
       <p class="text-xs font-semibold uppercase tracking-[.35em] text-slate-300">Next steps</p>
@@ -157,9 +188,52 @@
         <a aria-label="Request changes by email" href="mailto:info@codeamani.com?subject=Aspire%20Haven%20%E2%80%94%20Request%20Changes&body=Hi%20codeAmani%20team%2C%0A%0APlease%20make%20the%20following%20changes%20to%20the%20Aspire%20Haven%20site%3A%0A1)%20%0A2)%20%0A3)%20%0A%0APreferred%20call%20time%3A%20%0A%0AThanks%2C%0A" class="w-full sm:w-auto rounded-full border border-white/20 px-6 py-3 text-center text-slate-100 focus-ring">Request changes</a>
       </div>
     </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="mt-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+      <p class="text-xs font-semibold uppercase tracking-[.35em] text-slate-300">Frequently asked questions</p>
+      <h2 class="mt-3 text-2xl md:text-3xl font-semibold text-white">Answering your questions</h2>
+        <details class="group rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-semibold text-white">
+            <span>What is required to get the website and services?</span>
+            <span aria-hidden="true" class="ml-4 text-slate-400 group-open:rotate-45">✕</span>
+          </summary>
+          <div class="mt-4 space-y-3 text-sm text-slate-300">
+            <p><strong>Step 1 — Purchase the website (Foundation):</strong> this is the one‑time fee for the finished site and brand assets. The live demo will remain online through <strong>December 5, 2025</strong> (30 days from the November 5, 2025 email date). If it isn’t purchased within that window, the demo will be set to inactive.</p>
+            <p><strong>Step 2 — Choose an Operations plan (required):</strong> hosting, SSL, backups, updates, and technical management are bundled in our monthly <em>Operations</em> plan so the site stays secure and available.</p>
+            <p>Optional: add the <em>Marketing &amp; Visibility</em> subscription for social posting, weekly blog articles, and ongoing Google Business Profile management.</p>
+          </div>
+        </details>
+
+        <details class="group rounded-2xl border border-white/10 bg-slate-900/50 p-6" open>
+          <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-semibold text-white">
+            <span>What's the deal with the domain name?</span>
+            <span aria-hidden="true" class="ml-4 text-slate-400 group-open:rotate-45">✕</span>
+          </summary>
+          <p class="mt-4 text-sm text-slate-300">You have exclusive rights to your domain name (for example, <em>aspirehavengroup.com</em>) as long as it’s renewed annually. You can manage this yourself, but most clients prefer that <strong>codeAmani</strong> handles it end‑to‑end. Our <em>Operations</em> plan includes the cost of annual renewal and all technical management (DNS, SSL, backups), so your site stays live and secure.</p>
+        </details>
+
+        <details class="group rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-semibold text-white">
+            <span>Can I request changes to the website?</span>
+            <span aria-hidden="true" class="ml-4 text-slate-400 group-open:rotate-45">✕</span>
+          </summary>
+          <p class="mt-4 text-sm text-slate-300">Absolutely. Email your edits and we’ll push them live—typically within 72 hours. Common updates include photos, text, staff info, and announcements. Ongoing content and social posting are covered in the <em>Marketing &amp; Visibility</em> subscription.</p>
+        </details>
+
+        <details class="group rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-semibold text-white">
+            <span>Why is monthly SEO so important?</span>
+            <span aria-hidden="true" class="ml-4 text-slate-400 group-open:rotate-45">✕</span>
+          </summary>
+          <p class="mt-4 text-sm text-slate-300">Search visibility improves with steady activity and relevance. Posting weekly blog articles, keeping your Google Business Profile active, and maintaining consistent social updates help you stay in front of families and Support Coordinators. Monthly work protects rankings, attracts reviews, and grows qualified calls.</p>
+        </details>
+      </div>
+    </section>
+    </section>
   
   <!-- POLICIES -->
-  <section id="privacy" class="mx-auto mt-6 max-w-6xl rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+  <section id="policy-privacy" role="dialog" aria-hidden="true" tabindex="-1" class="policy hidden fixed bottom-4 right-4 z-50 w-[92vw] max-w-xl rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl shadow-xl shadow-black/20" class="mx-auto mt-6 max-w-6xl rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
     <h2 class="text-xl font-semibold text-white">Privacy Policy</h2>
     <p class="mt-3 text-sm text-slate-300">This proposal site is operated by <strong>codeAmani Solutions</strong> to present an offer to Aspire Haven Group Home. We collect only the information you voluntarily send us (for example, via email links). We do not sell, rent, or trade personal information. Any analytics used on this page are aggregated and do not identify individuals.</p>
     <ul class="mt-3 list-disc pl-6 text-sm text-slate-300">
@@ -172,7 +246,7 @@
     <p class="mt-3 text-xs text-slate-400">Effective date: 2025‑11‑04. This policy applies only to this proposal page and not to third‑party sites linked here.</p>
   </section>
 
-  <section id="terms" class="mx-auto mt-6 max-w-6xl rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+  <section id="policy-terms" role="dialog" aria-hidden="true" tabindex="-1" class="policy hidden fixed bottom-4 right-4 z-50 w-[92vw] max-w-xl rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl shadow-xl shadow-black/20" class="mx-auto mt-6 max-w-6xl rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
     <h2 class="text-xl font-semibold text-white">Terms of Use</h2>
     <ul class="mt-3 list-disc pl-6 text-sm text-slate-300">
       <li><strong>Purpose:</strong> this page is a sales proposal and demonstration only. It does not create a client relationship until both parties sign a service agreement or confirm acceptance in writing.</li>
@@ -185,10 +259,25 @@
     </ul>
   </section>
 
-  <section id="accessibility" class="mx-auto mt-6 max-w-6xl rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+  <section id="policy-accessibility" role="dialog" aria-hidden="true" tabindex="-1" class="policy hidden fixed bottom-4 right-4 z-50 w-[92vw] max-w-xl rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl shadow-xl shadow-black/20" class="mx-auto mt-6 max-w-6xl rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
     <h2 class="text-xl font-semibold text-white">Accessibility</h2>
     <p class="mt-3 text-sm text-slate-300">We aim for WCAG 2.1 AA conformance on this proposal page: keyboard‑friendly navigation, sufficient color contrast, alt text for images, and skip‑to‑content link. If you encounter an accessibility barrier, email <a class="underline" href="mailto:info@codeamani.com">info@codeamani.com</a> and we’ll remediate promptly.</p>
   </section>
+
+    <!-- REFERRALS -->
+    <section id="referrals" class="mt-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+      <p class="text-xs font-semibold uppercase tracking-[.35em] text-slate-300">Referral credit</p>
+      <h2 class="mt-3 text-2xl md:text-3xl font-semibold text-white">$250 credit for successful referrals</h2>
+      <div class="mt-4 space-y-3 text-sm text-slate-300">
+        <p>If you refer another business and they complete the purchase of a website with <strong>codeAmani</strong>, you receive a <strong>$250 credit</strong> that can be applied to the <em>Marketing &amp; Visibility</em> subscription.</p>
+        <ul class="list-disc pl-6">
+          <li><strong>How it works:</strong> introduce us via email or have them mention your name when they approve.</li>
+          <li><strong>When it applies:</strong> credit is issued after the referred client’s website purchase is completed.</li>
+          <li><strong>Use of credit:</strong> applied to future invoices for the <em>Marketing &amp; Visibility</em> subscription. Credits are non‑cash and non‑transferable.</li>
+          <li><strong>Multiple referrals:</strong> stackable—one $250 credit per successful referral.</li>
+        </ul>
+      </div>
+    </section>
 
   </main>
 
@@ -199,9 +288,9 @@
         <address class="not-italic text-sm text-slate-300">Orlando, FL • <a class="underline hover:text-white" href="mailto:info@codeamani.com">info@codeamani.com</a> • <a class="underline hover:text-white" href="https://www.codeamani.com" target="_blank" rel="noopener">codeamani.com</a></address>
       </div>
       <ul class="text-sm text-slate-300">
-        <li><a href="#privacy" class="underline hover:text-white">Privacy Policy</a></li>
-        <li><a href="#terms" class="underline hover:text-white">Terms of Use</a></li>
-        <li><a href="#accessibility" class="underline hover:text-white">Accessibility</a></li>
+        <li><a href="#" onclick="showPolicy('privacy'); return false;" class="underline hover:text-white">Privacy Policy</a></li>
+        <li><a href="#" onclick="showPolicy('terms'); return false;" class="underline hover:text-white">Terms of Use</a></li>
+        <li><a href="#" onclick="showPolicy('accessibility'); return false;" class="underline hover:text-white">Accessibility</a></li>
       </ul>
     </div>
   </footer>
