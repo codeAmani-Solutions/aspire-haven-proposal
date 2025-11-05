@@ -1,614 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aspire Haven Group Home — codeAmani Solutions Proposal</title>
-    <!-- FIX: Corrected the Tailwind CSS script URL --><script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <style>
-      :root {
-        color-scheme: dark;
-      }
-      body {
-        background: radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.18), transparent 45%),
-          radial-gradient(circle at 75% 10%, rgba(56, 189, 248, 0.18), transparent 55%),
-          radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.14), transparent 60%),
-          #020617;
-      }
-      /* Simple modal transition */
-      #ai-modal {
-        transition: opacity 0.3s ease-in-out;
-      }
-      #ai-modal.hidden {
-        opacity: 0;
-        pointer-events: none;
-      }
-      #ai-modal:not(.hidden) {
-        opacity: 1;
-        pointer-events: auto;
-      }
-      /* FAQ Accordion styles */
-      [data-accordion-content] {
-        transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
-        overflow: hidden;
-      }
-      [data-accordion-content].hidden {
-        max-height: 0;
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-      [data-accordion-button] svg {
-        transition: transform 0.3s ease-in-out;
-      }
-      [data-accordion-button][aria-expanded="true"] svg {
-        transform: rotate(45deg);
-      }
-    </style>
-  </head>
-  <body class="min-h-screen text-slate-100 antialiased">
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -left-32 -top-24 h-96 w-96 rounded-full bg-indigo-500/30 blur-3xl"></div>
-      <div class="absolute left-1/2 top-32 h-96 w-96 -translate-x-1/2 rounded-full bg-sky-400/25 blur-3xl"></div>
-      <div class="absolute -right-32 bottom-0 h-[26rem] w-[26rem] rounded-full bg-pink-500/20 blur-3xl"></div>
-    </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Aspire Haven — Your Website Is Live (Proposal by codeAmani)</title>
+  <meta name="description" content="One-page proposal for Aspire Haven Group Home. Shows the finished demo site, domain ownership plan, pricing, monthly subscriptions, and next steps." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <style>
+    :root { color-scheme: dark; }
+    html{scroll-behavior:smooth}
+    body{background:#0b1220}
+    .grain{background-image:radial-gradient(circle at 15% 20%,rgba(99,102,241,.18),transparent 45%),radial-gradient(circle at 75% 10%,rgba(56,189,248,.18),transparent 55%),radial-gradient(circle at 50% 80%,rgba(236,72,153,.14),transparent 60%)}
+    .focus-ring:focus{outline:3px solid #7dd3fc; outline-offset:2px}
+    /* Prevent sticky header from covering anchored sections */
+    section[id]{scroll-margin-top:90px}
+    /* Larger tap targets */
+    a, button { min-height: 44px; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Offer",
+    "name":"Aspire Haven Website + Ongoing Services",
+    "url":"https://codeamani-solutions.github.io/aspire-haven-proposal/",
+    "priceCurrency":"USD",
+    "availability":"https://schema.org/InStock",
+    "seller":{"@type":"Organization","name":"codeAmani Solutions","url":"https://www.codeamani.com"}
+  }
+  </script>
+</head>
+<body class="text-slate-100 antialiased grain">
+  <a href="#main" class="sr-only focus:not-sr-only focus-ring absolute left-2 top-2 z-50 rounded bg-sky-200 px-3 py-1 text-slate-900">Skip to content</a>
 
-    <header class="relative border-b border-white/10 bg-slate-950/70 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6">
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-slate-950/70 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded bg-sky-400 text-slate-900 font-black" aria-hidden="true">CA</span>
         <div>
-          <p class="text-xs font-semibold tracking-[0.35em] text-sky-300 uppercase">codeAmani Solutions</p>
-          <h1 class="mt-2 text-3xl font-semibold text-white md:text-4xl">
-            Aspire Haven Group Home — Digital Growth Proposal
-          </h1>
-        </div>
-        <a
-          href="mailto:info@codeamani.com"
-          class="inline-flex items-center gap-2 rounded-full border border-sky-300/40 bg-gradient-to-r from-sky-300 to-indigo-400 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/30 transition hover:-translate-y-0.5 hover:shadow-xl"
-        >
-          Book Your Free Consultation
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
-          </svg>
-        </a>
-      </div>
-    </header>
-
-    <main class="relative mx-auto grid max-w-6xl gap-6 px-6 py-10 lg:py-16">
-      <section class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
-        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Overview</p>
-            <h2 class="mt-4 text-2xl font-semibold text-white md:text-3xl">From APD Licensed Home to #1 Referral Choice</h2>
-            <p class="mt-4 text-base leading-relaxed text-slate-300">
-              We understand that for an APD Group Home, <strong class="font-semibold text-white">professionalism and competency are the deciding factors</strong> for Support Coordinators and families. This proposal details how <strong class="font-semibold text-white">codeAmani Solutions</strong> will provide a complete digital ecosystem for Aspire Haven. We're not just building a website; we're delivering an <strong class="font-semibold text-white">instantaneous upgrade to your professionalism</strong> that makes you the obvious choice for referrals. Watch as Support Coordinators and families start contacting you, confident in your competency.
-            </p>
-            <div class="mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/50 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-200">
-              Proven #1 Google ranking already secured
-            </div>
-          </div>
-          <figure class="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/60 shadow-lg shadow-black/30">
-            <img src="assets/rank-screenshot.png" alt="Screenshot proving Aspire Haven ranks first on Google" class="h-full w-full object-cover" loading="lazy" />
-          </figure>
-        </div>
-      </section>
-
-      <section id="package" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
-        <div class="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Foundational Package</p>
-            <h2 class="mt-3 text-2xl font-semibold text-white md:text-3xl">Built to impress from day one</h2>
-          </div>
-          <span class="text-sm font-medium text-slate-300">Desktop + mobile previews below</span>
-        </div>
-        <div class="mt-8 grid gap-6 lg:grid-cols-2">
-          <article class="flex flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/20">
-            <div>
-              <h3 class="text-xl font-semibold text-white">Custom Website Experience</h3>
-              <p class="mt-2 text-slate-300">
-                Story-driven layout tailored to APD services with clear trust markers, service pathways, and intuitive intake
-                prompts to convert interested families immediately.
-              </p>
-            </div>
-            <figure class="overflow-hidden rounded-xl border border-white/10">
-              <img src="assets/aspirehaven-thumb.png" alt="Desktop mockup of the Aspire Haven website" class="w-full" loading="lazy" />
-            </figure>
-          </article>
-          <article class="flex flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/20">
-            <div>
-              <h3 class="text-xl font-semibold text-white">Responsive Design Everywhere</h3>
-              <p class="mt-2 text-slate-300">
-                Optimized for phones, tablets, and desktops so coordinators and caregivers can reach Aspire Haven wherever they
-                are—without sacrificing performance or polish.
-              </p>
-            </div>
-            <figure class="overflow-hidden rounded-xl border border-white/10">
-              <img src="assets/Mobile View.jpg" alt="Mobile mockup of the Aspire Haven website" class="w-full" loading="lazy" />
-            </figure>
-          </article>
-        </div>
-      </section>
-
-      <section id="deliverables" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Your APD-Optimized Business Toolkit</p>
-        <h2 class="mt-3 text-2xl font-semibold text-white md:text-3xl">Everything You Own with the Foundation Bundle</h2>
-        <!-- 
-          REMOVED: Secure Client Portal
-          REMOVED: Referral Generation Tool
-          UPDATED: Grid classes to handle 4 items cleanly 
-        --><div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <article class="flex flex-col rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
-            <h3 class="text-lg font-semibold text-white">Domain Rights & Security</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-300">
-              Exclusive rights to <span class="font-semibold text-white">aspirehavengroup.com</span>. We manage the initial registration, DNS, security, and annual renewals to guard against downtime.
-            </p>
-          </article>
-          <article class="flex flex-col rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
-            <h3 class="text-lg font-semibold text-white">Professional Email Suite</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-300">
-              Launch inboxes like <span class="font-semibold text-white">info@aspirehavengroup.com</span> to build instant trust with coordinators and families.
-            </p>
-          </article>
-             <article class="flex flex-col rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
-            <h3 class="text-lg font-semibold text-white">Logo & Brand Assets</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-300">
-                  Full ownership of the custom-designed logo in all formats (SVG, PNG) for digital and print use, ensuring brand consistency.
-            </p>
-          </article>
-             <article class="flex flex-col rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
-            <h3 class="text-lg font-semibold text-white">Business Branding Kit</h3>
-            <p class="mt-3 text-sm leading-relaxed text-slate-300">
-                  Print-ready designs for professional business cards and company letterhead that establish your competency *before* the first meeting.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section id="investment" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Investment Summary</p>
-        <h2 class="mt-3 text-2xl font-semibold text-white md:text-3xl">A clear, multi-part investment</h2>
-
-        <!-- Part A: One-Time Payment --><div class="mt-8 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
-          <p class="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300">Part A: One-Time Foundation</p>
-          <div class="mt-4 flex flex-wrap items-end justify-between gap-4">
-            <h3 class="text-xl font-semibold text-white">Complete Business Toolkit Acquisition</h3>
-            <div class="text-right">
-              <p class="text-xl font-medium line-through text-slate-400">$2,000.00</p>
-              <p class="text-3xl font-bold text-emerald-400">$800.00</p>
-            </div>
-          </div>
-          <!-- UPDATED: Removed portal and referral tool from description --><p class="mt-3 text-sm leading-relaxed text-slate-300">
-            A one-time payment to acquire all the foundational assets you need to operate as a top-tier APD home: your custom website, domain, logo, and branding kit.
-          </p>
-          <div class="mt-4 rounded-md border border-amber-400/50 bg-amber-400/10 px-4 py-2 text-center text-sm font-semibold text-amber-200">
-            "End of Year" Promo: Save 75% when you sign up today!
-          </div>
-        </div>
-
-        <!-- Part B: Required Infrastructure --><div class="mt-8 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
-          <p class="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300">Part B: Required Digital Infrastructure</p>
-          <h3 class="mt-4 text-xl font-semibold text-white">Core Services & Hosting Plan</h3>
-           <p class="mt-3 text-sm leading-relaxed text-slate-300">
-            These are the essential services required to keep your website, professional email, and secure cloud systems online, fast, and protected.
-          </p>
-          <ul class="mt-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
-            <li>Secure Website Hosting</li>
-            <li>Microsoft 365 Pro Email & Cloud Storage</li>
-            <li>Annual Domain Registration & Management</li>
-            <li>24/7 Cybersecurity Monitoring</li>
-          </ul>
-          <div class="mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-4 rounded-lg border border-slate-700 bg-slate-950 p-4">
-            <div class="text-left">
-              <p class="text-xl font-medium line-through text-slate-400">$135.00 / month</p>
-              <p class="text-3xl font-bold text-emerald-400">$85.00 / month</p>
-            </div>
-            <p class="text-xl font-bold text-slate-300">OR</p>
-            <div class="text-left">
-              <p class="text-3xl font-bold text-emerald-400">$900.00 / annually</p>
-              <p class="text-sm font-semibold text-amber-200">Save an additional $120 per year!</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Part C: Optional Monthly Growth Plans --><div class="mt-8">
-           <p class="text-xs font-semibold uppercase tracking-[0.35em] text-sky-300">Part C: Choose Your Optional Monthly Growth Plan</p>
-          <p class="mt-2 text-sm text-slate-300">Activate your ongoing growth and support engine. Cancel anytime.</p>
-        </div>
-        <div class="mt-6 grid gap-6 lg:grid-cols-3">
-          <!-- Digital Visibility Plan --><article class="flex h-full flex-col rounded-2xl border border-emerald-400/50 bg-emerald-400/10 p-6 shadow-lg shadow-emerald-500/20">
-            <header class="flex items-center justify-between">
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-200">Recommended</p>
-                <h3 class="mt-2 text-xl font-semibold text-white">Digital Visibility Plan</h3>
-              </div>
-              <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-100">Best value</span>
-            </header>
-            
-            <ul class="mt-4 flex-1 space-y-2 text-sm text-emerald-100/90">
-              <li class="flex justify-between"><span>AI-Powered SEO Defense</span> <span class="font-medium text-white/70">($250 Value)</span></li>
-              <li class="flex justify-between"><span>Google Profile Management</span> <span class="font-medium text-white/70">($150 Value)</span></li>
-              <li class="flex justify-between"><span>Monthly Content & Blog Post</span> <span class="font-medium text-white/70">($200 Value)</span></li>
-              <li class="flex justify-between"><span>Social Media Management (FB/IG)</span> <span class="font-medium text-white/70">($250 Value)</span></li>
-              <li class="flex justify-between"><span>Performance Dashboard</span> <span class="font-medium text-white/70">($50 Value)</span></li>
-              <li class="flex justify-between"><span>Priority Support</span> <span class="font-medium text-white/70">($100 Value)</span></li>
-            </ul>
-            
-            <p class="mt-2 text-sm font-bold text-emerald-300">Total Monthly Value: $1,000</p>
-            
-            <!-- REMOVED: AI Blog Post Button --><div class="mt-6 rounded-md border border-amber-400/50 bg-amber-400/10 px-3 py-2 text-center text-sm font-semibold text-amber-200">
-              LIMITED TIME: Get your first month FREE!
-            </div>
-            <p class="mt-4 text-2xl font-semibold text-white">$650 / month</p>
-          </article>
-          
-          <!-- Total Growth Suite Plan --><article class="flex h-full flex-col rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
-            <header>
-              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">Market dominance</p>
-              <h3 class="mt-2 text-xl font-semibold text-white">Total Growth Suite</h3>
-            </header>
-            
-            <ul class="mt-4 flex-1 space-y-2 text-sm text-slate-300">
-                <li class="flex justify-between"><span>All "Digital Visibility" features</span> <span class="font-medium text-white/70">($1,000 Value)</span></li>
-                <li class="flex justify-between"><span>Paid Ad Campaign Setup</span> <span class="font-medium text-white/70">($300 Value)</span></li>
-                <li class="flex justify-between"><span>Multi-location SEO</span> <span class="font-medium text-white/70">($250 Value)</span></li>
-                <li class="flex justify-between"><span>Conversion Rate Optimization</span> <span class="font-medium text-white/70">($200 Value)</span></li>
-            </ul>
-            <p class="mt-2 text-sm font-bold text-slate-300">Total Monthly Value: $1,750</p>
-            
-            <p class="mt-auto pt-6 text-2xl font-semibold text-white">$1,200 / month</p>
-          </article>
-
-          <!-- Content & Social Plan --><article class="flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
-             <header>
-              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">Starter</p>
-              <h3 class="mt-2 text-xl font-semibold text-white">Content & Social Plan</h3>
-            </header>
-             <ul class="mt-4 flex-1 space-y-2 text-sm text-slate-300">
-                <li class="flex justify-between"><span>Security & Backups</span> <span class="font-medium text-white/70">($150 Value)</span></li>
-                <li class="flex justify-between"><span>Monthly Content & Blog Post</span> <span class="font-medium text-white/70">($200 Value)</span></li>
-                <li class="flex justify-between"><span>Social Media Management (FB/IG)</span> <span class="font-medium text-white/70">($250 Value)</span></li>
-            </ul>
-             <p class="mt-2 text-sm font-bold text-slate-300">Total Monthly Value: $600</Lp>
-             <div class="mt-6 rounded-md border border-amber-400/50 bg-amber-400/10 px-3 py-2 text-center text-sm font-semibold text-amber-200">
-              LIMITED TIME: $150 for your first month!
-            </div>
-             <p class="mt-4 text-2xl font-semibold text-white">$200 / month</p>
-           </article>
-        </div>
-      </section>
-
-      <!-- NEW SECTION: Standalone Solutions --><section id="standalone-solutions" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Standalone APD Management Solutions</p>
-        <h2 class="mt-3 text-2xl font-semibold text-white md:text-3xl">Optional SaaS & Management Tools</h2>
-         <p class="mt-2 text-sm text-slate-300">Highly recommended add-ons to automate referrals and manage client data with full compliance.</p>
-        <div class="mt-8 grid gap-6 md:grid-cols-2">
-          <!-- Secure Client Portal Card --><article class="flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
-             <header>
-              <h3 class="text-xl font-semibold text-white">Secure Client Portal</h3>
-            </header>
-             <p class="text-sm leading-relaxed text-slate-300">
-                  A HIPAA-compliant-ready portal to securely manage client files, APD forms, and sensitive communications with Support Coordinators.
-            </p>
-             <p class="mt-auto pt-4 text-xl font-semibold text-sky-300">Contact for Pricing</p>
-           </article>
-           <!-- Referral Generation Tool Card --><article class="flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/15">
-             <header>
-              <h3 class="text-xl font-semibold text-white">Referral Generation Tool</h3>
-            </header>
-             <p class="text-sm leading-relaxed text-slate-300">
-                  Your instant referral network. We provide the curated list of Jacksonville APD Support Coordinators so you can start outreach on Day 1.
-            </p>
-             <button id="draft-email-btn" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-sky-500/10 px-4 py-2 text-sm font-semibold text-sky-300 transition hover:bg-sky-500/20 disabled:opacity-50">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 01-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 013.09-3.09L12 5.25l.813 2.846a4.5 4.5 0 013.09 3.09L18.75 12l-2.846.813a4.5 4.5 0 01-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.624L16.5 21.75l-.398-1.126a3.375 3.375 0 00-2.456-2.456L12.75 18l1.126-.398a3.375 3.375 0 002.456-2.456L16.5 14.25l.398 1.126a3.375 3.375 0 002.456 2.456L20.25 18l-1.126.398a3.375 3.375 0 00-2.456 2.456z" /></svg>
-              <span>✨ Draft Sample Referral Email</span>
-            </button>
-             <p class="mt-auto pt-4 text-xl font-semibold text-sky-300">Contact for Pricing</p>
-           </article>
-        </div>
-      </section>
-
-      <section id="testimonial" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">What Other APD Home Operators Say</p>
-        <blockquote class="mt-6 space-y-4 text-lg font-medium leading-relaxed text-slate-200 md:text-xl">
-          <p>
-            “We are eternally grateful for codeAmani for their patience and guidance. We went from not being ableM to open encrypted referral emails for care coordinators to being fully setup with a website, Microsoft email, Logo, APD Forms, a marketing platform, an expenses dashboard, a virtual assistant to name but a few.”
-          </p>
-          <footer class="text-sm font-semibold tracking-wide text-slate-300">— Teresia Kimani, co-founder T&T Serenity Care</footer>
-        </blockquote>
-      </section>
-
-       <section id="faq" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Frequently Asked Questions</p>
-        <h2 class="mt-3 text-2xl font-semibold text-white md:text-3xl">Answering your questions</h2>
-        <div class="mt-8 space-y-4">
-          <!-- FAQ Item 1 --><div class="rounded-2xl border border-white/10 bg-slate-900/50 shadow-lg shadow-black/15">
-            <h2>
-              <button
-                type="button"
-                data-accordion-button
-                aria-expanded="false"
-                class="flex w-full items-center justify-between p-6 text-left text-lg font-semibold text-white"
-              >
-                <span>What's the deal with the domain name?</span>
-                <svg class="h-5 w-5 flex-shrink-0 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                </svg>
-              </button>
-            </h2>
-            <div data-accordion-content class="hidden px-6 pb-6">
-              <p class="text-slate-300">
-                You have exclusive rights to your domain name (e.g., aspirehavengroup.com) as long as it is renewed annually. While you can manage this yourself, we highly recommend letting codeAmani handle it. Our "Required Infrastructure" plan includes the cost of this annual renewal and all technical management, so you are always live and secure.
-              </p>
-            </div>
-          </div>
-          <!-- FAQ Item 2 --><div class="rounded-2xl border border-white/10 bg-slate-900/50 shadow-lg shadow-black/15">
-            <h2>
-              <button
-                type="button"
-                data-accordion-button
-                aria-expanded="false"
-                class="flex w-full items-center justify-between p-6 text-left text-lg font-semibold text-white"
-              >
-                <span>Can I request changes to the website?</span>
-                <svg class="h-5 w-5 flex-shrink-0 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                </svg>
-              </button>
-            </h2>
-            <div data-accordion-content class="hidden px-6 pb-6">
-              <p class="text-slate-300">
-                Absolutely. Support for website changes is included in our *Optional Growth Plans*. Simply email your request, and our team will have the changes live on your site, typically within 72 hours. This is perfect for updating photos, changing text, or posting new announcements.
-              </p>
-            </div>
-          </div>
-          <!-- FAQ Item 3 --><div class="rounded-2xl border border-white/10 bg-slate-900/50 shadow-lg shadow-black/15">
-            <h2>
-              <button
-                type="button"
-                data-accordion-button
-                aria-expanded="false"
-                class="flex w-full items-center justify-between p-6 text-left text-lg font-semibold text-white"
-              >
-                <span>Why is monthly SEO so important?</span>
-                <svg class="h-5 w-5 flex-shrink-0 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                </svg>
-              </button>
-            </h2>
-            <div data-accordion-content class="hidden px-6 pb-6">
-              <p class="text-slate-300">
-                Monthly SEO is critical for growth. Google's algorithm rewards active, relevant, and authoritative websites. We've already secured your #1 ranking, but competitors are always trying to catch up. Our monthly service *defends* that top spot by continuously optimizing content, managing your Google Business Profile, monitoring reviews, and ensuring your site remains the number one suggestion for new referrals.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="next-steps" class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
-        <div class="flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-300">Next steps</p>
-            <h2 class="mt-3 text-2xl font-semibold text-white md:text-3xl">Here’s how we launch together</h2>
-          </div>
-          <a
-            href="mailto:info@codeamani.com"
-            class="inline-flex items-center gap-2 rounded-full border border-sky-300/40 bg-gradient-to-r from-sky-300 to-indigo-400 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/3D transition hover:-translate-y-0.5 hover:shadow-xl"
-          >
-            Claim Your #1 Ranking
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
-            </svg>
-          </a>
-        </div>
-        <ol class="mt-8 grid gap-6 md:grid-cols-3">
-          <li class="relative rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/20">
-            <span class="absolute -top-4 left-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-500/20 text-sm font-semibold text-sky-200">01</span>
-            <p class="mt-6 text-sm leading-relaxed text-slate-300">Approve the proposal to activate Aspire Haven’s digital growth roadmap.</p>
-          </li>
-          <li class="relative rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/20">
-            <span class="absolute -top-4 left-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-500/20 text-sm font-semibold text-sky-200">02</span>
-            <p class="mt-6 text-sm leading-relaxed text-slate-300">We deploy the custom experience, connect your domain and email, and wire up analytics.</p>
-D          </li>
-          <li class="relative rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-lg shadow-black/20">
-            <span class="absolute -top-4 left-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-500/20 text-sm font-semibold text-sky-200">03</span>
-            <p class="mt-6 text-sm leading-relaxed text-slate-300">SEO agents monitor rankings daily and deliver your first performance review in 30 days.</p>
-          </li>
-        </ol>
-      </section>
-    </main>
-
-    <!-- AI Modal --><div id="ai-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
-      <div class="relative w-full max-w-2xl rounded-2xl border border-white/10 bg-slate-900 shadow-2xl">
-        <button id="close-modal" class="absolute -top-3 -right-3 flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-slate-800 text-slate-400 transition hover:bg-slate-700 hover:text-white" aria-label="Close modal">
-          &times;
-        </button>
-        <div class="p-6 md:p-8">
-          <h3 id="modal-title" class="text-xl font-semibold text-white"></h3>
-          <p id="modal-subtitle" class="mt-1 text-sm text-sky-300"></p>
-          <div class="mt-4 max-h-[60vh] overflow-y-auto rounded-lg border border-slate-700 bg-slate-950 p-4">
-            <div id="modal-loader" class="flex h-48 items-center justify-center">
-              <svg class="h-8 w-8 animate-spin text-sky-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-            </div>
-            <p id="modal-content" class="hidden whitespace-pre-wrap font-mono text-sm leading-relaxed text-slate-300"></p>
-          </div>
+          <p class="text-[11px] tracking-[.28em] text-sky-300 uppercase font-semibold">codeAmani Solutions</p>
+          <h1 class="text-lg md:text-xl font-semibold text-white">Proposal for Aspire Haven Group Home</h1>
         </div>
       </div>
+      <nav aria-label="primary">
+        <ul class="hidden md:flex items-center gap-6 text-sm text-slate-200">
+          <li><a href="#demo" class="hover:text-white">Live Demo</a></li>
+          <li><a href="#deliverables" class="hover:text-white">What You Get</a></li>
+          <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
+          <li><a href="#next" class="hover:text-white">Next Steps</a></li>
+        </ul>
+      </nav>
+      <a href="#next" class="rounded-full bg-gradient-to-r from-sky-300 to-indigo-400 px-5 py-2 text-sm font-semibold text-slate-900 focus-ring">Approve & Transfer</a>
     </div>
+  </header>
 
-    <!-- 
-      START SCRIPT 
-      All JavaScript is consolidated here to prevent loading errors.
-    --><script>
-      document.addEventListener('DOMContentLoaded', () => {
-        
-        // --- Accordion FAQ Logic ---
-        const accordionButtons = document.querySelectorAll('[data-accordion-button]');
-        if (accordionButtons.length > 0) {
-          accordionButtons.forEach(button => {
-            button.addEventListener('click', () => {
-              const content = button.parentElement.nextElementSibling;
-              if (content) {
-                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  <main id="main" class="relative mx-auto max-w-6xl px-6 py-12 md:py-16">
+    <!-- HERO: SHOW, DON'T TELL -->
+    <section id="demo" class="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[.35em] text-slate-300">Your website is live</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-semibold text-white">We set up <span class="text-sky-300">Aspire Haven Group Home</span> with a working site</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">So you can see exactly what families and coordinators will see—no mockups, the real thing. It’s fast, mobile‑friendly, and ready for edits this week.</p>
+        <div class="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+          <a href="https://www.aspirehavengroup.com/" target="_blank" rel="noopener" class="w-full sm:w-auto rounded-full bg-emerald-400/90 px-6 py-3 text-center font-semibold text-slate-900 focus-ring">Open the live site</a>
+          <p class="text-sm text-slate-300">We respond within one business day.</p>
+        </div>
+        <!-- Trust bar -->
+        <ul class="mt-6 flex flex-wrap gap-2 text-[12px] font-semibold text-slate-200">
+          <li class="rounded-full border border-white/15 bg-slate-900/60 px-3 py-1">Domain secured</li>
+          <li class="rounded-full border border-white/15 bg-slate-900/60 px-3 py-1">SSL & Backups</li>
+          <li class="rounded-full border border-white/15 bg-slate-900/60 px-3 py-1">Microsoft/Google Email</li>
+          <li class="rounded-full border border-white/15 bg-slate-900/60 px-3 py-1">Analytics & Call Tracking</li>
+        </ul>
+      </div>
+    </section>
 
-                button.setAttribute('aria-expanded', !isExpanded);
-                content.classList.toggle('hidden');
+    <!-- WHAT YOU GET -->
+    <section id="deliverables" class="mt-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+      <p class="text-xs font-semibold uppercase tracking-[.35em] text-slate-300">What’s included</p>
+      <h2 class="mt-3 text-2xl md:text-3xl font-semibold text-white">Everything needed to get found and contacted</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <article class="rounded-2xl border border-white/10 bg-slate-900/50 p-6"><h3 class="text-lg font-semibold text-white">Website on your domain</h3><p class="mt-2 text-sm text-slate-300">Live site with fast hosting, SSL, backups, and uptime monitoring.</p></article>
+        <article class="rounded-2xl border border-white/10 bg-slate-900/50 p-6"><h3 class="text-lg font-semibold text-white">Professional email</h3><p class="mt-2 text-sm text-slate-300">Microsoft 365 or Google Workspace, with SPF/DKIM/DMARC configured.</p></article>
+        <article class="rounded-2xl border border-white/10 bg-slate-900/50 p-6"><h3 class="text-lg font-semibold text-white">Google Business Profile</h3><p class="mt-2 text-sm text-slate-300">Setup/verification, photos, services, Q&A, and review prompts.</p></article>
+        <article class="rounded-2xl border border-white/10 bg-slate-900/50 p-6"><h3 class="text-lg font-semibold text-white">Local SEO basics</h3><p class="mt-2 text-sm text-slate-300">Citations, accurate NAP, and LocalBusiness schema markup.</p></article>
+        <article class="rounded-2xl border border-white/10 bg-slate-900/50 p-6"><h3 class="text-lg font-semibold text-white">Analytics & leads</h3><p class="mt-2 text-sm text-slate-300">GA4 + Search Console, contact form with autoresponder, optional call tracking.</p></article>
+        <article class="rounded-2xl border border-white/10 bg-slate-900/50 p-6"><h3 class="text-lg font-semibold text-white">Brand assets</h3><p class="mt-2 text-sm text-slate-300">Logo refresh, business cards, letterhead, and social headers.</p></article>
+      </div>
+      <div class="mt-6 rounded-md border border-emerald-400/40 bg-emerald-400/10 p-4 text-emerald-200 text-sm">Ownership: We transfer the domain and all assets to Aspire Haven upon acceptance.</div>
+    </section>
 
-                if (!isExpanded) {
-                  // Set max-height to its scroll height to animate open
-                  content.style.maxHeight = content.scrollHeight + 'px';
-                  content.style.paddingTop = '1.5rem'; // Corresponds to pb-6
-                  content.style.paddingBottom = '1.5rem'; // FIX: Corrected typo
-                } else {
-                  // Animate closed
-                  content.style.maxHeight = '0px';
-                  content.style.paddingTop = '0';
-                  content.style.paddingBottom = '0';
-                }
-              }
-            });
-          });
-        } else {
-          console.log("FAQ accordion buttons not found.");
-        }
+    <!-- PRICING (template-style like your main site) -->
+    <section id="pricing" class="mt-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+      <p class="text-xs font-semibold uppercase tracking-[.35em] text-slate-300">Investment</p>
+      <h2 class="mt-3 text-2xl md:text-3xl font-semibold text-white">One-time setup + simple subscriptions</h2>
 
-        // --- AI Modal Logic ---
-        const modal = document.getElementById('ai-modal');
-        const closeModalBtn = document.getElementById('close-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalSubtitle = document.getElementById('modal-subtitle');
-        const modalContent = document.getElementById('modal-content');
-        const modalLoader = document.getElementById('modal-loader');
-        const draftEmailBtn = document.getElementById('draft-email-btn');
-        // Removed draftBlogBtn as it's no longer present in the HTML.
-        
-        // Check if all critical AI elements exist (excluding draftBlogBtn now)
-        if (modal && closeModalBtn && modalTitle && modalSubtitle && modalContent && modalLoader && draftEmailBtn) {
-          
-          // Only draftEmailBtn remains in this array for generic demo button handling.
-          const demoButtons = [draftEmailBtn]; 
-          const originalButtonText = {
-            email: '✨ Draft Sample Referral Email',
-          };
+      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="flex flex-col rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+          <header>
+            <p class="text-[11px] uppercase tracking-[.35em] text-slate-300 font-semibold">Foundation (one-time)</p>
+            <h3 class="mt-1 text-xl font-semibold text-white">Website + Domain + Branding</h3>
+          </header>
+          <ul class="mt-4 flex-1 space-y-2 text-sm text-slate-300">
+            <li>Custom site on aspirehavengroup.com</li>
+            <li>Logo, color system, business card design</li>
+            <li>Privacy/Terms/Accessibility pages</li>
+          </ul>
+          <p class="mt-3 text-xl text-slate-400 line-through">$2,000</p>
+          <p class="text-3xl font-bold text-emerald-400">$800</p>
+        </article>
+        <article class="flex flex-col rounded-2xl border border-emerald-400/50 bg-emerald-400/10 p-6">
+          <header class="flex items-center justify-between">
+            <div>
+              <p class="text-[11px] uppercase tracking-[.35em] text-emerald-200 font-semibold">Operations (monthly)</p>
+              <h3 class="mt-1 text-xl font-semibold text-white">Hosting + Email + Support</h3>
+            </div>
+            <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-100">Most popular</span>
+          </header>
+          <ul class="mt-4 flex-1 space-y-2 text-sm text-emerald-100/90">
+            <li>Fast hosting, SSL, backups</li>
+            <li>Microsoft/Google email for your domain</li>
+            <li>Updates and security monitoring</li>
+          </ul>
+          <p class="mt-3 text-xl text-emerald-200 line-through">$135 / mo</p>
+          <p class="text-3xl font-bold text-white">$85 / mo</p>
+          <p class="text-xs text-emerald-100/80">or $900/year (save $120)</p>
+        </article>
+        <article class="flex flex-col rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+          <header>
+            <p class="text-[11px] uppercase tracking-[.35em] text-slate-300 font-semibold">Subscription (monthly)</p>
+            <h3 class="mt-1 text-xl font-semibold text-white">Marketing & Visibility</h3>
+          </header>
+          <ul class="mt-4 flex-1 space-y-2 text-sm text-slate-300">
+            <li>Google Business Profile setup & management</li>
+            <li>Instagram & Facebook account creation + posting</li>
+            <li>Content creation: 3 posts per week</li>
+            <li>Weekly blog articles to boost search visibility</li>
+          </ul>
+          <p class="mt-3 text-sm font-semibold text-amber-200">First month free (promo)</p>
+          <p class="text-3xl font-semibold text-white">$250 / mo</p>
+        </article>
+      </div>
+    </section>
 
-          // Modal Control
-          function openModal() {
-            modal.classList.remove('hidden');
-          }
+    <!-- NEXT STEPS -->
+    <section id="next" class="mt-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+      <p class="text-xs font-semibold uppercase tracking-[.35em] text-slate-300">Next steps</p>
+      <ol class="mt-4 space-y-3 text-slate-300">
+        <li>1) Reply with “Approved” (or request edits). We’ll start immediate transfer of the domain to Aspire Haven as the legal registrant.</li>
+        <li>2) Share preferred email suite (Microsoft or Google) and the first mailbox name (for example, <strong>info@aspirehavengroup.com</strong>).</li>
+        <li>3) We make requested edits within 5–7 days, set up Google Business Profile, and send your brand kit + business card files.</li>
+      </ol>
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <a aria-label="Approve and transfer by email" href="mailto:info@codeamani.com?subject=Aspire%20Haven%20%E2%80%94%20Approve%20%26%20Transfer&body=Hi%20codeAmani%20team%2C%0A%0AWe%20approve%20the%20proposal%20for%20Aspire%20Haven%20Group%20Home.%0A%0APrimary%20contact%3A%20%0APhone%3A%20%0APreferred%20email%20suite%3A%20Microsoft%20365%20or%20Google%20Workspace%0AFirst%20mailbox%20name%3A%20info%40aspirehavengroup.com%0A%0ABilling%20email%3A%20%0A%0AThanks%2C%0A" class="w-full sm:w-auto rounded-full bg-emerald-400/90 px-6 py-3 text-center font-semibold text-slate-900 focus-ring">Approve & Transfer</a>
+        <a aria-label="Request changes by email" href="mailto:info@codeamani.com?subject=Aspire%20Haven%20%E2%80%94%20Request%20Changes&body=Hi%20codeAmani%20team%2C%0A%0APlease%20make%20the%20following%20changes%20to%20the%20Aspire%20Haven%20site%3A%0A1)%20%0A2)%20%0A3)%20%0A%0APreferred%20call%20time%3A%20%0A%0AThanks%2C%0A" class="w-full sm:w-auto rounded-full border border-white/20 px-6 py-3 text-center text-slate-100 focus-ring">Request changes</a>
+      </div>
+    </section>
+  
+  <!-- POLICIES -->
+  <section id="privacy" class="mx-auto mt-6 max-w-6xl rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+    <h2 class="text-xl font-semibold text-white">Privacy Policy</h2>
+    <p class="mt-3 text-sm text-slate-300">This proposal site is operated by <strong>codeAmani Solutions</strong> to present an offer to Aspire Haven Group Home. We collect only the information you voluntarily send us (for example, via email links). We do not sell, rent, or trade personal information. Any analytics used on this page are aggregated and do not identify individuals.</p>
+    <ul class="mt-3 list-disc pl-6 text-sm text-slate-300">
+      <li><strong>What we collect:</strong> contact details you email us; basic traffic metrics (page views, clicks).</li>
+      <li><strong>How we use it:</strong> to respond to your inquiry, prepare deliverables, and provide services if you become a client.</li>
+      <li><strong>How we store it:</strong> secure business systems with role‑based access. We use industry‑standard safeguards and retain data only as long as necessary.</li>
+      <li><strong>Protected Health Information (PHI):</strong> please do not submit medical or confidential resident details through this page. If PHI is required for services, we will provide a secure channel.</li>
+      <li><strong>Your choices:</strong> email <a class="underline" href="mailto:info@codeamani.com">info@codeamani.com</a> to access, correct, or delete your data.</li>
+    </ul>
+    <p class="mt-3 text-xs text-slate-400">Effective date: 2025‑11‑04. This policy applies only to this proposal page and not to third‑party sites linked here.</p>
+  </section>
 
-          function closeModal() {
-            modal.classList.add('hidden');
-          }
+  <section id="terms" class="mx-auto mt-6 max-w-6xl rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+    <h2 class="text-xl font-semibold text-white">Terms of Use</h2>
+    <ul class="mt-3 list-disc pl-6 text-sm text-slate-300">
+      <li><strong>Purpose:</strong> this page is a sales proposal and demonstration only. It does not create a client relationship until both parties sign a service agreement or confirm acceptance in writing.</li>
+      <li><strong>Ownership:</strong> upon acceptance and payment of the agreed fees, domain and brand assets created for Aspire Haven will be transferred to Aspire Haven.</li>
+      <li><strong>Acceptable use:</strong> do not attempt to test, reverse engineer, or misuse this site.</li>
+      <li><strong>Warranties:</strong> provided “as is” for demonstration. We disclaim implied warranties to the fullest extent allowed by law.</li>
+      <li><strong>Liability limit:</strong> to the extent permitted by law, codeAmani’s total liability for claims arising from this page or the proposal is limited to the amount you paid us for the related services.</li>
+      <li><strong>Governing law:</strong> Florida, USA.</li>
+      <li><strong>Contact:</strong> <a class="underline" href="mailto:info@codeamani.com">info@codeamani.com</a></li>
+    </ul>
+  </section>
 
-          closeModalBtn.addEventListener('click', closeModal);
-          modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-              closeModal();
-            }
-          });
+  <section id="accessibility" class="mx-auto mt-6 max-w-6xl rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-xl shadow-black/20">
+    <h2 class="text-xl font-semibold text-white">Accessibility</h2>
+    <p class="mt-3 text-sm text-slate-300">We aim for WCAG 2.1 AA conformance on this proposal page: keyboard‑friendly navigation, sufficient color contrast, alt text for images, and skip‑to‑content link. If you encounter an accessibility barrier, email <a class="underline" href="mailto:info@codeamani.com">info@codeamani.com</a> and we’ll remediate promptly.</p>
+  </section>
 
-          // Prompts
-          const PROMPTS = {
-            email: {
-              system: "You are a professional healthcare administrator. You write concise, clear, and professional emails.",
-              user: "Draft a short, professional email from 'Aspire Haven Group Home' to a new APD Support Coordinator in Jacksonville. The email should introduce the group home, highlight its key services (compassionate care, secure environment, specialized APD programs), and ask for a brief 15-minute call to discuss potential client referrals.",
-              title: "✨ AI-Drafted Referral Email",
-              subtitle: "This demonstrates how we'll help you build your referral network."
-            },
-            // Removed blog prompt
-          };
+  </main>
 
-          // Gemini API Call
-          const API_KEY = ""; // Keep this empty
-          const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEY}`;
-
-          async function callGemini(systemPrompt, userPrompt, title, subtitle, buttonType) {
-            openModal();
-            modalTitle.textContent = title;
-            modalSubtitle.textContent = subtitle;
-            modalContent.classList.add('hidden');
-            modalLoader.classList.remove('hidden');
-            demoButtons.forEach(btn => btn.disabled = true);
-            
-            // Simplified button text update logic since only one AI button remains
-            if (buttonType === 'email') {
-              const btnSpan = draftEmailBtn.querySelector('span');
-              if (btnSpan) btnSpan.textContent = 'Working...';
-            }
-            
-
-            const payload = {
-              contents: [{ parts: [{ text: userPrompt }] }],
-              systemInstruction: {
-                parts: [{ text: systemPrompt }]
-              },
-            };
-
-            let response;
-            let retries = 0;
-            const maxRetries = 5;
-            let delay = 1000;
-
-            while (retries < maxRetries) {
-              try {
-                response = await fetch(API_URL, {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(payload)
-                });
-
-                if (response.ok) {
-                  const result = await response.json();
-                  const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
-
-                  if (text) {
-                    modalContent.textContent = text;
-                  } else {
-                    throw new Error("Invalid response structure from API.");
-                  }
-                  break; 
-                } else if (response.status === 429 || response.status >= 500) {
-                  // Retry on rate limits or server errors
-                  retries++;
-                  await new Promise(resolve => setTimeout(resolve, delay));
-                  delay *= 2; 
-                } else {
-                  // Don't retry on other client errors
-                  const errorResult = await response.json();
-                  throw new Error(errorResult.error?.message || `HTTP Error: ${response.status}`);
-                }
-              } catch (error) {
-                console.error("Gemini API call failed:", error);
-                modalContent.textContent = `An error occurred while generating content:\n\n${error.message}\n\nPlease try again in a moment.`;
-                break; // Stop retrying on catch
-              }
-            }
-
-            if (retries === maxRetries) {
-               modalContent.textContent = "The service is currently busy. Please try again in a moment.";
-            }
-
-            // Restore UI state
-            modalContent.classList.remove('hidden');
-            modalLoader.classList.add('hidden');
-            demoButtons.forEach(btn => btn.disabled = false);
-            
-            // Restore original button text for the remaining email button.
-            const emailBtnSpan = draftEmailBtn.querySelector('span');
-            if (emailBtnSpan) emailBtnSpan.textContent = originalButtonText.email;
-          }
-
-          // Event Listener for the remaining email button
-          draftEmailBtn.addEventListener('click', () => {
-            const p = PROMPTS.email;
-            callGemini(p.system, p.user, p.title, p.subtitle, 'email');
-          });
-          
-        } else {
-          console.error("Critical modal or button elements are missing from the DOM. AI features will be disabled.");
-        }
-      });
-    </script>
-  </body>
+  <footer class="mt-10 border-t border-white/10 bg-slate-950/60">
+    <div class="mx-auto max-w-6xl px-6 py-8 grid gap-6 md:grid-cols-2">
+      <div>
+        <p class="font-semibold">codeAmani Solutions</p>
+        <address class="not-italic text-sm text-slate-300">Orlando, FL • <a class="underline hover:text-white" href="mailto:info@codeamani.com">info@codeamani.com</a> • <a class="underline hover:text-white" href="https://www.codeamani.com" target="_blank" rel="noopener">codeamani.com</a></address>
+      </div>
+      <ul class="text-sm text-slate-300">
+        <li><a href="#privacy" class="underline hover:text-white">Privacy Policy</a></li>
+        <li><a href="#terms" class="underline hover:text-white">Terms of Use</a></li>
+        <li><a href="#accessibility" class="underline hover:text-white">Accessibility</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
 </html>
-
